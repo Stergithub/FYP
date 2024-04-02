@@ -53,7 +53,7 @@ void getPhSensorValue(){
   avgval=0;
   for(int i=2;i<8;i++){
     avgval+=buffer_arr[i];
-    float volt=(float)avgval*5.0/1024/6; 
+    float volt=(float)avgval*3.3/1023/6; 
     ph_act = -5.70 * volt + calibration_value;
   }
   Serial.print("pH Val: ");
@@ -66,11 +66,11 @@ void getTurbiditySensorValue(){
   for (int i=0; i<800; i++)
   {
     sensorValue = analogReadTwo();
-    volt += ((float)sensorValue/1023)*5;// converting analog reading to volt
+    volt += ((float)sensorValue/1023)*3.3;// converting analog reading to volt
   }
   volt = volt/800;
   volt = round_to_dp(volt,2);
-  if(volt < 2.5){
+  if(volt < 1.65){
     ntu = 3000;
   }
   else{
