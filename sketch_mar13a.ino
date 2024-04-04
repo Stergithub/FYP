@@ -70,8 +70,7 @@ void getTurbiditySensorValue(){
   volt = 0;
   for (int i=0; i<800; i++)
   {
-    sensorValue = analogRead(0);
-    volt += ((float)sensorValue/1023)*3.3;// converting analog reading to volt
+    volt += ((float)analogRead(0)/1023)*3.3;// converting analog reading to volt
   }
   volt = volt/800;
   volt = round_to_dp(volt,2);
