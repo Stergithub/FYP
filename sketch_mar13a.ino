@@ -36,7 +36,7 @@ void loop(){
   delay(500);
 }
 
-void (){
+void getPhSensorValue(){
   digitalWrite(PH_POWER_PIN, HIGH); //  Turn ph sensor On
   digitalWrite(TURBIDITY_POWER_PIN, LOW); // Turn turbidity senso Off
   
