@@ -4,7 +4,9 @@
 #include <Adafruit_SSD1306.h>
 
 #define PH_POWER_PIN D1
-#define TURBIDITY_POWER_PIN D2             
+#define TURBIDITY_POWER_PIN D2  
+
+const int sensorPin = A0;
 
 float calibration_value = 21.34 - 0.4;
 int phval = 0; 
@@ -41,7 +43,7 @@ void getPhSensorValue(){
   digitalWrite(TURBIDITY_POWER_PIN, LOW); // Turn turbidity senso Off
   
   for(int i=0;i<10;i++){ 
-    buffer_arr[i]=analogRead(0);
+    buffer_arr[i]=analogRead(sensorPin);
     delay(30);
   }
   for(int i=0;i<9;i++){
@@ -70,7 +72,7 @@ void getTurbiditySensorValue(){
   volt = 0;
   for (int i=0; i<800; i++)
   {
-    volt += ((float)analogRead(0)/1023)*3.3;// converting analog reading to volt
+    volt += ((float)analogRead(sensorPin)/1023)*3.3;// converting analog reading to volt
   }
   volt = volt/800;
   volt = round_to_dp(volt,2);
