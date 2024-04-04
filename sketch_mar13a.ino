@@ -30,13 +30,13 @@ void setup(){
 }
 
 void loop(){
-  getPhSensorValue();\
+  getPhSensorValue();
   delay(500);
   getTurbiditySensorValue();
   delay(500);
 }
 
-void getPhSensorValue(){
+void (){
   digitalWrite(PH_POWER_PIN, HIGH); //  Turn ph sensor On
   digitalWrite(TURBIDITY_POWER_PIN, LOW); // Turn turbidity senso Off
   
@@ -99,7 +99,7 @@ float square(float in_value){
 }
 
 void connectToWiFi(){
-  Serial.begin(115200);              //SET THE BAUD RATE TO 115200 
+  // Serial.begin(115200);              //SET THE BAUD RATE TO 115200 
   WiFi.mode(WIFI_STA);               //ESP works in two Wifi modes: as an individual station and as a soft access point. Here its as a station.
   WiFi.begin(ssid, password);        //a function that gets the ssid and password to connect to the router.
   Serial.print("Connecting to WiFi"); 
