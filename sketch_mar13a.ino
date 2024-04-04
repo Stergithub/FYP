@@ -37,8 +37,11 @@ void loop(){
 }
 
 void getPhSensorValue(){
+  digitalWrite(PH_POWER_PIN, HIGH); //  Turn ph sensor On
+  digitalWrite(TURBIDITY_POWER_PIN, LOW); // Turn turbidity senso Off
+  
   for(int i=0;i<10;i++){ 
-    buffer_arr[i]=analogReadOne();
+    buffer_arr[i]=analogRead(0);
     delay(30);
   }
   for(int i=0;i<9;i++){
@@ -61,11 +64,14 @@ void getPhSensorValue(){
 }
 
 void getTurbiditySensorValue(){
+  digitalWrite(PH_POWER_PIN, LOW); //  Turn ph sensor off
+  digitalWrite(TURBIDITY_POWER_PIN, HIGH); // Turn turbidity sensor On
+  
   int sensorValue;
   volt = 0;
   for (int i=0; i<800; i++)
   {
-    sensorValue = analogReadTwo();
+    sensorValue = analogRead(0);
     volt += ((float)sensorValue/1023)*3.3;// converting analog reading to volt
   }
   volt = volt/800;
@@ -105,16 +111,4 @@ void connectToWiFi(){
   }
   Serial.println("IP Address: ");
   Serial.println(WiFi.localIP());   
-}
-
-int analogReadOne() {
-    digitalWrite(PH_POWER_PIN, HIGH); //  Turn D1 On
-    digitalWrite(TURBIDITY_POWER_PIN, LOW); // Turn D2 Off
-    return analogRead(0);
-}
-
-int analogReadTwo() {
-    digitalWrite(PH_POWER_PIN, LOW); //  Turn D2 On
-    digitalWrite(TURBIDITY_POWER_PIN, HIGH); // Turn D1 Off
-    return analogRead(0);
 }
