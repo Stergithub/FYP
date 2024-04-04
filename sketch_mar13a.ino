@@ -26,7 +26,7 @@ void setup(){
   Serial.begin(115200);
   Wire.begin();
   delay(20);
-  connectToWiFi();
+  // connectToWiFi();
 }
 
 void loop(){
