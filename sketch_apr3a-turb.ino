@@ -9,6 +9,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
   pinMode(digitalPin, OUTPUT); // Set D2 as output
+  digitalWrite(digitalPin, HIGH); // Set D2 to high
 }
 
 void loop() {
@@ -22,12 +23,10 @@ void loop() {
   volt = round_to_dp(volt,2);
   if(volt < 1.5){ // Adjusted threshold accordingly
     ntu = 3000;
-    digitalWrite(digitalPin, HIGH); // Set D2 to high
   }
   else {
     ntu = -1120.4 * square(volt)+5742.3*volt-4353.9; // Converting to NTU in the range of 0-3000
     ntu_1 = (ntu/3000)*5; // Converting to NTU in the range of 0-5
-    digitalWrite(digitalPin, LOW); // Set D2 to low
   }
   Serial.print("ntu: ");
   Serial.println(ntu_1);
