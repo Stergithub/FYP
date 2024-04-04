@@ -1,6 +1,6 @@
 // turbidity sensor variables
 const int sensorPin = A0;
-const int digitalPin = 2; // Digital pin D2
+const int digitalPin = D2; // Digital pin D2
 float volt;
 float ntu;
 float ntu_1;
