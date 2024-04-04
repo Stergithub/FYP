@@ -3,8 +3,8 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-#define PH_POWER_PIN 1
-#define TURBIDITY_POWER_PIN 2             
+#define PH_POWER_PIN D1
+#define TURBIDITY_POWER_PIN D2             
 
 float calibration_value = 21.34 - 0.4;
 int phval = 0; 
