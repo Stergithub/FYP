@@ -30,8 +30,8 @@ void setup(){
 }
 
 void loop(){
-  getPhSensorValue();
-  delay(500);
+  // getPhSensorValue();
+  // delay(500);
   getTurbiditySensorValue();
   delay(500);
 }
@@ -67,7 +67,6 @@ void getTurbiditySensorValue(){
   digitalWrite(PH_POWER_PIN, LOW); //  Turn ph sensor off
   digitalWrite(TURBIDITY_POWER_PIN, HIGH); // Turn turbidity sensor On
   
-  int sensorValue;
   volt = 0;
   for (int i=0; i<800; i++)
   {
