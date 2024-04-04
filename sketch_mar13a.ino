@@ -114,7 +114,7 @@ int analogReadOne() {
 }
 
 int analogReadTwo() {
-    digitalWrite(PH_POWER_PIN, LOW); //  Turn D1 On
-    digitalWrite(TURBIDITY_POWER_PIN, HIGH); // Turn D2 Off
+    digitalWrite(PH_POWER_PIN, LOW); //  Turn D2 On
+    digitalWrite(TURBIDITY_POWER_PIN, HIGH); // Turn D1 Off
     return analogRead(0);
 }
