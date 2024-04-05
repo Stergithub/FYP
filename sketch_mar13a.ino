@@ -3,8 +3,8 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-#define PH_POWER_PIN D1
-#define TURBIDITY_POWER_PIN D2  
+const int PH_POWER_PIN = D1;
+const int TURBIDITY_POWER_PIN = D2;  
 
 const int sensorPin = A0;
 
