@@ -66,8 +66,8 @@ void getPhSensorValue(){
 }
 
 void getTurbiditySensorValue(){
-  digitalWrite(PH_POWER_PIN, LOW); //  Turn ph sensor off
   digitalWrite(TURBIDITY_POWER_PIN, HIGH); // Turn turbidity sensor On
+  digitalWrite(PH_POWER_PIN, LOW); //  Turn ph sensor off
   
   volt = 0;
   for (int i=0; i<800; i++)
