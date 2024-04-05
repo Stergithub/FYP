@@ -3,7 +3,7 @@
 // #include <Adafruit_GFX.h>
 // #include <Adafruit_SSD1306.h>
 
-// const int PH_POWER_PIN = D1;
+const int PH_POWER_PIN = D1;
 const int TURBIDITY_POWER_PIN = D2;  
 
 const int sensorPin = A0;
@@ -24,8 +24,8 @@ float ntu_1;
 
 void setup(){
   Serial.begin(115200);
-  // pinMode(PH_POWER_PIN, OUTPUT);
   pinMode(TURBIDITY_POWER_PIN, OUTPUT);
+  pinMode(PH_POWER_PIN, OUTPUT);
   // Wire.begin();
   // delay(20);
   // connectToWiFi();
@@ -67,7 +67,7 @@ void loop(){
 
 void getTurbiditySensorValue(){
   digitalWrite(TURBIDITY_POWER_PIN, HIGH); // Turn turbidity sensor On
-  // digitalWrite(PH_POWER_PIN, LOW); //  Turn ph sensor off
+  digitalWrite(PH_POWER_PIN, LOW); //  Turn ph sensor off
   
   volt = 0;
   for (int i=0; i<800; i++)
