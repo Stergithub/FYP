@@ -26,8 +26,8 @@ void setup(){
   pinMode(PH_POWER_PIN, OUTPUT);
   pinMode(TURBIDITY_POWER_PIN, OUTPUT);
   Serial.begin(115200);
-  Wire.begin();
-  delay(20);
+  // Wire.begin();
+  // delay(20);
   // connectToWiFi();
 }
 
