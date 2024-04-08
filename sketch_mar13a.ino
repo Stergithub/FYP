@@ -33,12 +33,6 @@ void setup(){
 
 void loop(){
   // delay(500);
-  getTurbiditySensorValue();
-  delay(1000);
-  getPhSensorValue();
-}
-
-void getTurbiditySensorValue(){
   digitalWrite(TURBIDITY_POWER_PIN, HIGH); // Turn turbidity sensor On
   digitalWrite(PH_POWER_PIN, LOW); //  Turn ph sensor off
 
@@ -58,8 +52,32 @@ void getTurbiditySensorValue(){
   }
   Serial.print("ntu: ");
   Serial.println(ntu_1);
-  delay(500);
+  delay(1000);
+  getPhSensorValue();
 }
+
+// void getTurbiditySensorValue(){
+//   digitalWrite(TURBIDITY_POWER_PIN, HIGH); // Turn turbidity sensor On
+//   digitalWrite(PH_POWER_PIN, LOW); //  Turn ph sensor off
+
+//   volt = 0;
+//   for (int i=0; i<800; i++)
+//   {
+//     volt += ((float)analogRead(sensorPin)/1023)*3.0; // Adjusted for 3V reference
+//   }
+//   volt = volt/800;
+//   volt = round_to_dp(volt,2);
+//   if(volt < 1.5){ // Adjusted threshold accordingly
+//     ntu = 3000;
+//   }
+//   else {
+//     ntu = -1120.4 * square(volt)+5742.3*volt-4353.9; // Converting to NTU in the range of 0-3000
+//     ntu_1 = (ntu/3000)*5; // Converting to NTU in the range of 0-5
+//   }
+//   Serial.print("ntu: ");
+//   Serial.println(ntu_1);
+//   delay(500);
+// }
 
 float round_to_dp( float in_value, int decimal_place ) {
   float multiplier = powf( 10.0f, decimal_place );
