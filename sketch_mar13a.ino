@@ -15,7 +15,6 @@ int buffer_arr[10],temp;
 
 float ph_act;
 
-int volt = 0;
 float volt;
 float ntu; 
 float ntu_1;
