@@ -15,6 +15,7 @@ int buffer_arr[10],temp;
 
 float ph_act;
 
+int volt = 0;
 float volt;
 float ntu; 
 float ntu_1;
@@ -41,8 +42,7 @@ void loop(){
 void getTurbiditySensorValue(){
   digitalWrite(TURBIDITY_POWER_PIN, HIGH); // Turn turbidity sensor On
   digitalWrite(PH_POWER_PIN, LOW); //  Turn ph sensor off
-  
-  volt = 0;
+
   for (int i=0; i<800; i++)
   {
     volt += ((float)analogRead(sensorPin)/1023)*3.0; // Adjusted for 3V reference
