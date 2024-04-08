@@ -34,7 +34,7 @@ void setup(){
 void loop(){
   // delay(500);
   getTurbiditySensorValue();
-  delay(2000);
+  delay(1000);
   getPhSensorValue();
 }
 
