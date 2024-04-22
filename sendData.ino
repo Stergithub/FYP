@@ -4,8 +4,8 @@
 
 #define SEND_INTERVAL_SECS  10
 
-const char *WIFI_NAME = "Tech Crunch Link";
-const char *PASSWORD = "Mwanje12";
+const char *WIFI_NAME = "LEGO";
+const char *PASSWORD = "y3nz3artx";
 const char* BROKER = "broker.hivemq.com";
 const char* RASPBERRY_TOPIC = "myRaspBerryName";
 
@@ -69,7 +69,7 @@ void sendData(float ph_value, float turbidity)
 
 
   char data[30] = "";
-  sprintf(data, "ph:%.2f,ntu:%.2f", ph_value, turbidity);
+  sprintf(data, "{\"ph\":%.2f,\"ntu\":%.2f}", ph_value, turbidity);
 
   if(!mqtt.connected())
   {
